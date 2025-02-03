@@ -5,7 +5,6 @@ import Image from '../../components/Image'
 import QuantityPicker from '../../components/QuantityPicker'
 import { fetchInventory } from '../../utils/inventoryProvider'
 import { slugify } from '../../utils/helpers'
-import CartLink from '../../components/CartLink'
 import { SiteContext, ContextProviderComponent } from '../../context/mainContext'
 
 const ItemView = (props) => {
@@ -30,11 +29,11 @@ const ItemView = (props) => {
 
   return (
     <>
-      <CartLink />
       <Head>
         <title>Jamstack ECommerce - {name}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={`Jamstack ECommerce - ${name}`} key="title" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
       </Head>
       <div className="
         sm:py-12

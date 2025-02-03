@@ -13,21 +13,18 @@ function CartLink(props) {
   let { context: { numberOfItemsInCart = 0 }} = props
   return (
     (<div>
-      <div className="fixed
-      sm:top-53 right-24 desktop:right-flexiblemargin
-      top-40 z-10">
-        <div className="flex flex-1 justify-end pr-4 relative">
-          <Link href="/cart" aria-label="Cart">
-
-            <FaShoppingCart />
-
-          </Link>
-          {
-            renderClientSideComponent && numberOfItemsInCart > Number(0) && (
-              <FaCircle color={primary} size={12} suppressHydrationWarning />
-            )
-          }
-        </div>
+      <div>
+        <Link href="/cart" aria-label="cart" className="relative">
+          <FaShoppingCart className="w-6 h-6 text-zinc-800 hover:text-gray-700 transition-colors" />
+          {renderClientSideComponent && numberOfItemsInCart > Number(0) && (
+            <div className="absolute -top-7 -right-8">
+              <FaCircle color={primary} size={12} suppressHydrateWarning />
+              <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs text-zinc-800">
+                {numberOfItemsInCart}
+              </span>
+            </div>
+          )}
+        </Link>
       </div>
     </div>)
   );

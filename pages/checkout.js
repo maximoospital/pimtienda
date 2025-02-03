@@ -132,6 +132,7 @@ const Checkout = ({ context }) => {
         <title>Jamstack ECommerce - Checkout</title>
         <meta name="description" content={`Check out`} />
         <meta property="og:title" content="Jamstack ECommerce - Checkpit" key="title" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
       </Head>
       <div
         className="

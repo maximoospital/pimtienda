@@ -7,7 +7,6 @@ import { slugify } from '../utils/helpers'
 import QuantityPicker from '../components/QuantityPicker'
 import Image from '../components/Image'
 import Head from 'next/head'
-import CartLink from '../components/CartLink'
 
 const Cart = ({ context }) => {
   const [renderClientSideComponent, setRenderClientSideComponent] = useState(false)
@@ -33,12 +32,12 @@ const Cart = ({ context }) => {
   if (!renderClientSideComponent) return null
 
   return (<>
-    <CartLink />
     <div className="flex flex-col items-center pb-10">
       <Head>
         <title>Jamstack ECommerce - Cart</title>
         <meta name="description" content={`Jamstack ECommerce - Shopping cart`} />
         <meta property="og:title" content="Jamstack ECommerce - Cart" key="title" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
       </Head>
       <div className="
         flex flex-col w-full

@@ -1,18 +1,17 @@
 import Head from 'next/head'
 import { titleIfy , slugify } from '../utils/helpers'
 import { DisplayMedium } from '../components'
-import CartLink from '../components/CartLink'
 import { fetchInventory } from '../utils/inventoryProvider'
 
 function Categories ({ categories = [] }) {
   return (
     <>
       <div className="w-full">
-        <CartLink />
         <Head>
           <title>Jamstack ECommerce - All Categories</title>
           <meta name="description" content={`Jamstack ECommerce - All categories`} />
           <meta property="og:title" content="Jamstack ECommerce - All Categories" key="title" />
+          <link type="text/plain" rel="author" href="/humans.txt" />
         </Head>
         <div className="
           pt-4 sm:pt-10 pb-8
