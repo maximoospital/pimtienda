@@ -15,7 +15,7 @@ export default function Layout({ children, categories }) {
   }
   return (
     (<div className='min-h-screen'>
-      <nav className='hidden md:block top-0 z-50 bg-[#AEAEAE]'>
+      <nav className='hidden md:block sticky top-0 z-50 bg-[#AEAEAE]'>
         <div className="bg-neutral-800 text-white text-center py-0.5">
           <p className='text-white text-md'>Compra mínima $70.000 | Envíos a todo el país</p>
         </div>
