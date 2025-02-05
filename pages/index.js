@@ -3,10 +3,10 @@ import { Center, Footer, Tag, Showcase, DisplaySmall, DisplayMedium } from '../c
 import { titleIfy, slugify } from '../utils/helpers'
 import { fetchInventory } from '../utils/inventoryProvider'
 
-const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
+const Home = ({ inventoryData = [], categories: categoryData = [], hello }) => {
   const inventory = inventoryData.slice(0, 4)
   const categories = categoryData.slice(0, 2)
-
+  console.log(hello);
   return (
     <>
       <div className="w-full">
@@ -99,6 +99,8 @@ const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
 }
 
 export async function getStaticProps() {
+  const res = await fetch('http://localhost:3000/api/hello');
+  const hello = await res.json();
   const inventory = await fetchInventory()
   
   const inventoryCategorized = inventory.reduce((acc, next) => {
@@ -120,12 +122,15 @@ export async function getStaticProps() {
     })
     return acc
   }, [])
+  console.log(hello);
   
   return {
     props: {
       inventoryData: inventory,
-      categories: inventoryCategorized
-    }
+      categories: inventoryCategorized,
+      hello: hello
+    },
+    revalidate: 10,
   }
 }
 

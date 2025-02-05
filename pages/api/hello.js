@@ -1,5 +1,8 @@
 // pages/api/hello.js
 
+let counter = 0;
+
 export default function handler(req, res) {
-    res.status(200).json({ message: 'Hello from Vercel API Route!' });
-  }
+  counter++;
+  res.status(200).json({ number: counter });
+}
