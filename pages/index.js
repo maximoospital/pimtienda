@@ -99,7 +99,7 @@ const Home = ({ inventoryData = [], categories: categoryData = [], hello }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/hello');
+  const res = await fetch('https://pimtienda.vercel.app/api/hello');
   const hello = await res.json();
   const inventory = await fetchInventory()
   
