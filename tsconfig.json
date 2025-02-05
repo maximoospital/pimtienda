@@ -15,6 +15,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false,
     "isolatedModules": true,
     "jsx": "preserve"
   },
