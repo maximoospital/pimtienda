@@ -6,7 +6,7 @@ import { fetchInventory } from '../utils/inventoryProvider'
 const Home = ({ inventoryData = [], categories: categoryData = [], hello }) => {
   const inventory = inventoryData.slice(0, 4)
   const categories = categoryData.slice(0, 2)
-  console.log(hello);
+  console.log(JSON.parse(JSON.stringify(hello)));
   return (
     <>
       <div className="w-full">
@@ -99,7 +99,12 @@ const Home = ({ inventoryData = [], categories: categoryData = [], hello }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://pimtienda.vercel.app/api/hello');
+  const res = await fetch(`${process.env.SITE_DOMAIN}/api/sheets`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${process.env.SECRET_TOKEN}`
+    }
+  });
   const hello = await res.json();
   const inventory = await fetchInventory()
   
@@ -122,7 +127,7 @@ export async function getStaticProps() {
     })
     return acc
   }, [])
-  console.log(hello);
+  console.log(JSON.parse(JSON.stringify(hello)));
   
   return {
     props: {
