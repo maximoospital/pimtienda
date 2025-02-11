@@ -1,0 +1,15 @@
+name: Update Google Sheets Data
+
+on:
+  schedule:
+    - cron: "*/9 * * * *"  # Runs every 10 minutes
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel API
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
+            ${{ secrets.SITE_DOMAIN }}/api/update
